@@ -54,6 +54,7 @@ flowchart LR
     Switch --> G2[HP G2 Active Directory Lab]
     Switch --> AP[Wireless Access Points]
     AP --> Clients[Clients and IoT Devices]
+```
 
 ## ⭐ Featured Projects
 
