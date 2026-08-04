@@ -1,60 +1,56 @@
 # Copper Code IT Lab
 
-Hands-on infrastructure lab documenting my progression in networking, systems administration, virtualisation, storage, Linux and infrastructure automation.
+> A practical infrastructure engineering portfolio documenting the design, deployment and operation of my homelab.
 
-## Current project
+![Portfolio](https://img.shields.io/badge/Portfolio-IT%20Infrastructure-blue)
+![Location](https://img.shields.io/badge/Location-Australia-green)
+![Current%20Focus](https://img.shields.io/badge/Current%20Focus-Active%20Directory-orange)
+![Status](https://img.shields.io/badge/Status-Actively%20Learning-brightgreen)
 
-### HP EliteDesk G2 Active Directory Lab
+## About Me
 
-A virtualised small-business environment built on Proxmox VE to practise:
+Hi, I’m Sandy Brendish, an aspiring infrastructure and systems engineer based in Australia.
 
-- Windows Server administration
+I learn by building real systems. This repository documents my progression through networking, Windows Server, Linux, virtualisation, storage, automation and infrastructure troubleshooting.
+
+The goal is not only to install software. Each project records the planning, design decisions, implementation, testing, failures, troubleshooting, recovery and lessons learned.
+
+## Current Focus
+
+I am currently building an enterprise-style Active Directory lab on an HP EliteDesk G2 using Proxmox VE.
+
+The lab will include:
+
+- Windows Server
 - Active Directory Domain Services
-- DNS and DHCP
+- DNS
+- DHCP
 - Group Policy
-- Windows client domain joins
+- Windows client virtual machines
 - File shares and NTFS permissions
 - PowerShell automation
-- Backup, recovery and troubleshooting
+- Backup and recovery testing
 
-[View the project documentation](projects/hp-g2-active-directory-lab/README.md)
+[View the HP G2 Active Directory Lab](projects/hp-g2-active-directory-lab/README.md)
 
-## Lab projects
+## Infrastructure Dashboard
 
-| Project | Status | Skills |
+| System | Purpose | Status |
 |---|---|---|
-| HP G2 Active Directory Lab | Planning and hardware validation | Proxmox, Windows Server, AD DS, DNS, GPO |
-| TrueNAS storage server | Operational | Storage, SMB, applications, backups |
-| Cottage network | Operational and expanding | Switching, Wi-Fi, routing, remote access |
-| HP Z440 AI workstation | Operational and expanding | Linux, Docker, GPU compute, monitoring |
+| HP Z440 | AI workstation and Docker host | Operational |
+| HP EliteDesk 800 G1 SFF | TrueNAS storage server | Operational |
+| HP EliteDesk G2 | Active Directory and Windows Server lab | Hardware validation |
+| Cottage network | Managed switching, Wi-Fi and remote access | Operational and expanding |
+| Home Assistant | Smart-home infrastructure | Planned |
 
-## Documentation approach
+## Lab Architecture
 
-Each project records:
-
-1. objectives and requirements;
-2. architecture and design decisions;
-3. implementation steps;
-4. testing and validation;
-5. problems and troubleshooting;
-6. security and recovery considerations;
-7. lessons learned and future improvements.
-
-## Repository structure
-
-```text
-docs/       Shared lab documentation
-projects/   Individual infrastructure projects
-scripts/    PowerShell, Bash and automation scripts
-diagrams/   Sanitised network and system diagrams
-templates/  Reusable documentation templates
-images/     Sanitised screenshots and photos
-```
-
-## Security notice
-
-This public repository contains sanitised documentation only. Passwords, private keys, customer information, serial numbers, public IP addresses and recoverable configuration backups are excluded.
-
-## About
-
-This portfolio is part of my practical learning pathway into networking, systems administration and IT infrastructure engineering through Copper Code.
+```mermaid
+flowchart LR
+    Internet --> Router[Router and Firewall]
+    Router --> Switch[Managed Switch]
+    Switch --> NAS[TrueNAS Server]
+    Switch --> Z440[HP Z440 AI Workstation]
+    Switch --> G2[HP G2 Active Directory Lab]
+    Switch --> AP[Wireless Access Points]
+    AP --> Clients[Clients and IoT Devices]
