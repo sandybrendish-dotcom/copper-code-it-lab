@@ -6,11 +6,11 @@
 |---|---|
 | Manufacturer | HP |
 | Model | EliteDesk 800 G2 |
-| Form factor | TBD |
-| CPU | TBD |
-| CPU cores/threads | TBD |
-| RAM | TBD |
-| Storage | TBD |
+| Form factor | SFF |
+| CPU | i7 6700 3.4GHz |
+| CPU cores/threads | 4/8 |
+| RAM | 8GB (2x4GB) 2133 MHz |
+| Storage | 120GB |
 | Network adapter | TBD |
 | BIOS version | TBD |
 | Virtualisation support | TBD |
