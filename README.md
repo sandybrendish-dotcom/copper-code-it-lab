@@ -38,7 +38,7 @@ The lab will include:
 | System | Purpose | Status |
 |---|---|---|
 | HP Z440 | AI workstation and Docker host | Operational |
-| HP EliteDesk 800 G1 SFF | TrueNAS storage server | Operational |
+| [TrueNAS Storage Server](projects/truenas-storage-server/README.md) | HP EliteDesk 800 G1 SFF | 🟢 Operational |
 | HP EliteDesk G2 | Active Directory and Windows Server lab | Hardware validation |
 | Cottage network | Managed switching, Wi-Fi and remote access | Operational and expanding |
 | Home Assistant | Smart-home infrastructure | Planned |
