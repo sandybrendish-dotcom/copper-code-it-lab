@@ -54,3 +54,107 @@ flowchart LR
     Switch --> G2[HP G2 Active Directory Lab]
     Switch --> AP[Wireless Access Points]
     AP --> Clients[Clients and IoT Devices]
+
+## ⭐ Featured Projects
+
+These are the major infrastructure projects that make up my homelab. Each project includes planning, implementation, testing, troubleshooting and lessons learned.
+
+---
+
+### 🖥️ HP EliteDesk G2 Active Directory Lab
+
+**Status:** 🟡 Hardware Validation
+
+**Purpose**
+
+Build an enterprise-style Windows Server environment to learn:
+
+- Proxmox VE
+- Windows Server
+- Active Directory
+- DNS
+- DHCP
+- Group Policy
+- PowerShell
+- Backup and Recovery
+
+📖 **Documentation**
+
+[View Project](projects/hp-g2-active-directory-lab/README.md)
+
+---
+
+### 💾 TrueNAS Storage Server
+
+**Status:** 🟢 Operational
+
+**Purpose**
+
+Central storage server providing:
+
+- ZFS storage
+- SMB shares
+- Jellyfin
+- Immich
+- Snapshots
+- Backups
+- Tailscale Remote Access
+
+📖 **Documentation**
+
+[View Project](projects/truenas-storage-server/README.md)
+
+---
+
+### 🤖 HP Z440 AI Workstation
+
+**Status:** 🟢 Operational
+
+**Purpose**
+
+Local AI development workstation used for:
+
+- Ubuntu Linux
+- Docker
+- Ollama
+- Open WebUI
+- CUDA
+- Local LLMs
+- Monitoring
+
+🚧 Documentation currently being written.
+
+---
+
+### 🌐 Cottage Network
+
+**Status:** 🟢 Operational
+
+**Purpose**
+
+Business-style network built using:
+
+- Managed Switching
+- Aruba Access Points
+- VLAN Planning
+- Tailscale
+- Remote Management
+
+🚧 Documentation currently being written.
+
+---
+
+### 🏠 Home Assistant
+
+**Status:** ⚪ Planned
+
+Future smart-home automation platform integrating:
+
+- ESP32
+- Smart plugs
+- Sensors
+- Dashboards
+- Automations
+- Voice assistants
+
+---
