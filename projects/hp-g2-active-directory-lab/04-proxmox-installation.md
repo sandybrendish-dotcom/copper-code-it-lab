@@ -26,9 +26,9 @@
 - [X] Web interface accessible
 - [X] Updates installed
 - [X] Reboot successful
-- [ ] Storage detected
+- [X] Storage detected
 - [X] Network link stable
-- [ ] System time correct
+- [X] System time correct
 - [ ] Backup destination planned
 
 

@@ -70,3 +70,14 @@ A dedicated NFS backup target was added to Proxmox.
 - Restore the VM using a different VM ID
 - Measure backup size and duration
 - Create an appropriate retention policy
+
+## First VM backup
+
+- VM: `CC-DC01`
+- VM ID: `100`
+- Destination: TrueNAS NFS backup storage
+- Mode: Snapshot
+- Compression: ZSTD
+- Backup size: approximately 9.3 GB
+- Result: Successful
+- Validation: Backup files visible on TrueNAS and listed in Proxmox
