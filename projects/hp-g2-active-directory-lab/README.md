@@ -61,3 +61,264 @@ Build a virtualised Windows Server environment on an HP EliteDesk 800 G2 to prac
 - Security permissions
 - Backup and recovery
 - Technical documentation
+
+
+# Windows Server Active Directory Lab
+
+## Project Overview
+
+This project documents the design and implementation of a Windows Server Active Directory lab running on Proxmox.
+
+The objective of this lab is to simulate a small business IT environment while developing practical skills used in IT Help Desk, Systems Administration and Infrastructure Engineering roles.
+
+---
+
+# Objectives
+
+- Deploy a Windows Server 2022 Domain Controller
+- Configure Active Directory Domain Services (AD DS)
+- Configure integrated DNS
+- Build a realistic organisational structure
+- Create security groups using best practices
+- Create departmental user accounts
+- Deploy Windows 11 client computers
+- Join clients to the Active Directory domain
+- Learn enterprise administration and troubleshooting
+
+---
+
+# Lab Infrastructure
+
+## Physical Host
+
+| Component | Specification |
+|-----------|---------------|
+| Host | HP EliteDesk G2 |
+| Hypervisor | Proxmox VE |
+| Backup Storage | TrueNAS NFS |
+| Network | Isolated AD Lab Network |
+
+---
+
+## Virtual Machines
+
+| VM | Purpose | IP Address |
+|----|----------|------------|
+| CC-DC01 | Domain Controller | 10.20.0.10 |
+| CC-CLIENT01 | Windows 11 Client | 10.20.0.20 |
+
+---
+
+# Network Design
+
+```
+                    Internet
+                        │
+                  EdgeRouter X
+                        │
+                 192.168.1.0/24
+                        │
+                 Proxmox Host
+                  vmbr0 (LAN)
+                        │
+                 NAT (iptables)
+                        │
+                vmbr1 (10.20.0.1)
+                        │
+             10.20.0.0/24 AD Lab
+                │             │
+         CC-DC01        CC-CLIENT01
+      10.20.0.10        10.20.0.20
+```
+
+---
+
+# Active Directory
+
+## Forest
+
+```
+ad.coppercode.test
+```
+
+## NetBIOS
+
+```
+COPPERCODE
+```
+
+---
+
+# DNS Configuration
+
+The Domain Controller hosts the Active Directory DNS zone.
+
+Internal queries:
+
+```
+ad.coppercode.test
+```
+
+are resolved locally.
+
+External DNS requests are forwarded to:
+
+```
+192.168.1.166
+```
+
+(AdGuard Home)
+
+---
+
+# Organisational Unit Structure
+
+```
+ad.coppercode.test
+│
+└── Copper Code
+    ├── Admin Accounts
+    ├── Groups
+    ├── Servers
+    ├── Service Accounts
+    ├── Users
+    │   ├── Administration
+    │   ├── Help Desk
+    │   ├── Management
+    │   ├── Repairs
+    │   └── Sales
+    └── Workstations
+```
+
+---
+
+# Security Groups
+
+```
+GG-Administration
+GG-HelpDesk
+GG-Management
+GG-Repairs
+GG-Sales
+GG-IT-Admins
+```
+
+Global Security Groups are used to simplify permissions and follow Microsoft Active Directory best practices.
+
+---
+
+# Test Users
+
+| Username | Department |
+|----------|------------|
+| sandy.admin | Administration |
+| alex.repair | Repairs |
+| jamie.sales | Sales |
+
+---
+
+# Windows Client
+
+The first Windows 11 client was:
+
+```
+CC-CLIENT01
+```
+
+Configuration:
+
+- Windows 11 Pro
+- VirtIO Drivers
+- QEMU Guest Agent
+- Joined to Active Directory
+- Authenticated using domain credentials
+
+---
+
+# Backup Strategy
+
+Backups are stored on:
+
+- TrueNAS
+- NFS Storage
+- ZSTD Compression
+- Proxmox Snapshot Backups
+
+Baseline backups were created before and after Active Directory deployment.
+
+---
+
+# Skills Demonstrated
+
+## Virtualisation
+
+- Proxmox VE
+- Virtual Networking
+- VirtIO
+- TPM 2.0
+- UEFI Virtual Machines
+
+## Windows Server
+
+- Windows Server 2022
+- Active Directory Domain Services
+- DNS
+- Domain Controller Promotion
+- Domain Join
+- Organizational Units
+- Security Groups
+- User Administration
+
+## Networking
+
+- Static IP Addressing
+- NAT Routing
+- DNS Forwarding
+- Active Directory DNS
+- Internal Name Resolution
+
+## Linux
+
+- systemd Services
+- iptables
+- NAT (MASQUERADE)
+- NFS Storage
+- Shell Administration
+
+---
+
+# Lessons Learned
+
+During this project I learned how Active Directory depends heavily on DNS and why clients must use the Domain Controller as their DNS server.
+
+I also learned how to isolate an enterprise lab using Proxmox virtual networking while maintaining internet connectivity through Linux NAT.
+
+Creating Organisational Units and Security Groups before creating users makes future administration significantly easier and follows Microsoft's recommended design practices.
+
+---
+
+# Future Improvements
+
+- Group Policy Objects (GPO)
+- Windows Server Update Services (WSUS)
+- File Server
+- Roaming Profiles
+- Folder Redirection
+- DFS
+- Certificate Services
+- Additional Domain Controller
+- DHCP Server
+- Print Server
+- Remote Desktop Services
+
+---
+
+# Status
+
+✅ Operational
+
+Current Version:
+
+```
+v1.0
+```
